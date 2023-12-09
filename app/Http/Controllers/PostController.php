@@ -16,7 +16,7 @@ class PostController extends Controller
     
     public function show(Post $post)
     {
-        return view('posts/show')->with(['post' => $post]);
+        return view('posts.show')->with(['post' => $post]);
     }
     
     public function create(Category $category)
@@ -26,19 +26,19 @@ class PostController extends Controller
     
     public function store(PostRequest $request, Post $post)
     {
-        $input = $request['post'];
+        $input = $request->input('post');
         $post->fill($input)->save();
         return redirect('/posts/' . $post->id);
     }
     
     public function edit(Post $post)
     {
-        return view('posts/edit')->with(['post' => $post]);
+        return view('posts.edit')->with(['post' => $post]);
     }
     
     public function update(PostRequest $request, Post $post)
     {
-        $input_post = $request['post'];
+        $input_post = $request->input('post');
         $post->fill($input_post)->save();
         return redirect('/posts/' . $post->id);
     }

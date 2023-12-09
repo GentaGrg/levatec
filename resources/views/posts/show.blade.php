@@ -8,7 +8,7 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
     
     </head>
-    <body class="antiliased"
+    <body class="antiliased">
         <h1 class="title">
             {{ $post->title }}
         </h1>
@@ -25,7 +25,7 @@
             <a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a>
         </div>
         <div class="footer">
-            <a href="">戻る</a>
+            <a href="/posts/{{ $post->id }}">戻る</a>
         </div>
     </body>
 </html>
