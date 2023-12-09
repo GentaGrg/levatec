@@ -13,8 +13,8 @@ public function posts()
     return $this->hasMany(Post::class);
 }
 
-public function getBtCategory(int $limit_count = 5)
+public function getByCategory(int $limit_count = 5)
 {
-    return $this->posts()->with('category')->orderBy('updated_at', 'DESC')->paginated($limit_count);
+    return $this->posts()->with('category')->orderBy('updated_at', 'DESC')->paginate($limit_count);
 }
 }
