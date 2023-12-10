@@ -9,6 +9,10 @@
     
     </head>
     <body class="antiliased">
+        <x-app-layout>
+            <x-slot name="header">
+                index
+            </x-slot>    
         <h1 class="title">
             {{ $post->title }}
         </h1>
@@ -25,7 +29,8 @@
             <a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a>
         </div>
         <div class="footer">
-            <a href="/posts/{{ $post->id }}">戻る</a>
+            <a href="{{ route('index') }}">戻る</a>
         </div>
+        </x-app-layout>
     </body>
 </html>
