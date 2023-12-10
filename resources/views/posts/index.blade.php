@@ -9,6 +9,10 @@
     
     </head>
     <body class="antialiased">
+        <x-app-layout>
+            <x-slot name="header">
+            index
+            </x-slot>
         <h1>Blog Name</h1>
         <a href="/posts/create">create</a>
         <div class='posts'>
@@ -24,9 +28,7 @@
                     </form>
                 </div>
             @endforeach
-            <div class="footer">
-                <a href="/posts/{{ $post->id }}">戻る</a>
-            </div>
+            ログインユーザー:{{ Auth::user()->name }} 
         </div>
         <div class='paginate'>{{ $posts->links()}}</div>
         <script>
@@ -34,9 +36,10 @@
                 'use strict';
                 
                 if (confirm('削除すると復元できません。\n本当に削除しますか？')) {
-                    document.getElementById(`form_${id}`).submit();
-                }
+                document.getElementById(`form_${id}`).submit();
+            }
             }
         </script>
+        </x-app-layout>
     </body>
 </html>
