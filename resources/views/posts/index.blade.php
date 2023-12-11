@@ -13,6 +13,15 @@
             <x-slot name="header">
             index
             </x-slot>
+            <div>
+        @foreach($questions as $question)
+            <div>
+                <a href="https://teratail.com/questions/{{ $question['id'] }}">
+                    {{ $question['title'] }}
+                </a>
+            </div>
+        @endforeach
+            </div>
         <h1>Blog Name</h1>
         <a href="/posts/create">create</a>
         <div class='posts'>
